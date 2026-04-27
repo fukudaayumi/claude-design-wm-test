@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WEBMASTERS | Webスキルで、稼げる自分へ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --pink: #FF6B9D;
+  --pink-light: #FFF0F5;
+  --pink-mid: #FFD6E7;
+  --green: #3DBFA8;
+  --green-light: #E8FAF7;
+  --green-dark: #2A9E8A;
+  --gold: #E8B84B;
+  --text: #333333;
+  --text-light: #666666;
+  --text-muted: #999999;
+  --bg: #FAFAFA;
+  --white: #FFFFFF;
+  --border: #EEEEEE;
+  --radius: 12px;
+  --shadow: 0 2px 16px rgba(0,0,0,0.07);
+}
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.7;
+  font-size: 14px;
+}
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; }
+
+/* ── HEADER ── */
+header {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+}
+.logo {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 16px; font-weight: 700; color: var(--green); letter-spacing: .5px;
+}
+.logo-icon {
+  width: 28px; height: 28px; background: var(--green);
+  border-radius: 6px; display: flex; align-items: center; justify-content: center;
+}
+.logo-icon svg { width: 16px; height: 16px; fill: white; }
+nav { display: flex; align-items: center; gap: 28px; }
+nav a { font-size: 13px; font-weight: 500; color: var(--text); }
+.header-actions { display: flex; align-items: center; gap: 10px; }
+.btn-dl {
+  font-size: 12px; font-weight: 600; color: var(--green);
+  padding: 8px 16px; border: 1.5px solid var(--green); border-radius: 20px;
+  cursor: pointer; background: white; display: flex; align-items: center; gap: 5px;
+}
+.btn-cta {
+  font-size: 12px; font-weight: 700; color: white;
+  background: var(--pink); padding: 9px 18px; border-radius: 20px;
+  cursor: pointer; border: none; white-space: nowrap;
+  display: flex; align-items: center; gap: 5px;
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative; overflow: hidden;
+  background: var(--white);
+  padding: 56px 80px 0 80px;
+  min-height: 480px;
+  display: flex; align-items: flex-end; gap: 0;
+}
+.deco-dots {
+  position: absolute; width: 60px; height: 60px;
+  background-image: radial-gradient(circle, #FFB7D0 1.5px, transparent 1.5px);
+  background-size: 10px 10px;
+}
+.dots-tl { top: 80px; left: 20px; }
+.dots-bl { bottom: 80px; left: 60px; }
+.dots-br { bottom: 40px; right: 40px; }
+.hero-deco-circle-1 {
+  position: absolute; left: -60px; top: 40px;
+  width: 200px; height: 200px; border-radius: 50%;
+  background: rgba(61,191,168,0.10); pointer-events: none;
+}
+.hero-deco-circle-2 {
+  position: absolute; right: -30px; bottom: -50px;
+  width: 160px; height: 160px; border-radius: 50%;
+  background: rgba(61,191,168,0.08); pointer-events: none;
+}
+.hero-content { flex: 1; padding-bottom: 48px; z-index: 1; }
+.hero-title {
+  font-size: 50px; font-weight: 900; line-height: 1.3;
+  color: var(--text); margin-bottom: 16px;
+}
+.hero-title .accent { color: var(--green); }
+.hero-sub {
+  font-size: 14px; color: var(--text-light); margin-bottom: 36px;
+}
+.hero-stats { display: flex; gap: 20px; }
+.stat-badge {
+  display: flex; flex-direction: column; align-items: center;
+  position: relative;
+}
+.stat-wreath {
+  width: 96px; height: 96px; position: relative;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.stat-wreath svg.wreath {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+}
+.stat-inner { position: relative; z-index: 1; text-align: center; }
+.stat-label-top { font-size: 9px; color: var(--text-light); }
+.stat-num { font-size: 30px; font-weight: 900; color: var(--gold); line-height: 1; }
+.stat-num span { font-size: 16px; }
+.stat-source { font-size: 9px; color: var(--text-muted); margin-top: 4px; text-align: center; }
+
+.hero-image {
+  flex: 0 0 440px; align-self: flex-end; z-index: 1;
+}
+.hero-photo {
+  width: 100%; height: 400px; border-radius: 20px 20px 0 0; overflow: hidden;
+  background: linear-gradient(160deg, #EAF7F4 0%, #F5EDE8 100%);
+  display: flex; align-items: flex-end; justify-content: center;
+}
+
+/* ── SECTION COMMON ── */
+.section { padding: 60px 80px; }
+.section-title {
+  text-align: center; font-size: 22px; font-weight: 700;
+  margin-bottom: 8px; color: var(--text);
+}
+.section-sub {
+  text-align: center; font-size: 12px; color: var(--text-muted); margin-bottom: 40px;
+}
+.divider-line {
+  width: 36px; height: 3px; background: var(--green); border-radius: 2px;
+  margin: 10px auto 36px;
+}
+
+/* ── PAIN POINTS ── */
+.pain { background: white; }
+.pain-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 0;
+  max-width: 860px; margin: 0 auto;
+}
+.pain-card { text-align: center; padding: 20px 32px; }
+.pain-icon {
+  width: 72px; height: 72px; border-radius: 50%;
+  background: var(--pink-light); margin: 0 auto 16px;
+  display: flex; align-items: center; justify-content: center;
+}
+.pain-icon svg { width: 36px; height: 36px; }
+.pain-card p { font-size: 13px; color: var(--text); line-height: 1.7; font-weight: 500; }
+
+/* ── SOLUTION ── */
+.solution { background: var(--bg); }
+.solution-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 0;
+  max-width: 860px; margin: 0 auto;
+}
+.solution-card { text-align: center; padding: 20px 28px; }
+.solution-icon {
+  width: 72px; height: 72px; border-radius: 50%;
+  background: var(--pink-light); margin: 0 auto 16px;
+  display: flex; align-items: center; justify-content: center;
+}
+.solution-icon svg { width: 36px; height: 36px; }
+.solution-card p { font-size: 13px; color: var(--text); line-height: 1.8; font-weight: 500; }
+
+/* ── FEATURES ── */
+.features { background: white; }
+.features-sub { text-align: center; font-size: 12px; color: var(--text-muted); margin-bottom: 36px; }
+.feature-list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+.feature-item {
+  display: flex; align-items: flex-start; gap: 20px;
+  background: white; border-radius: var(--radius);
+  border: 1px solid var(--border); padding: 24px 28px;
+}
+.feature-item-icon {
+  width: 52px; height: 52px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.feature-item-icon.green { background: var(--green); }
+.feature-item-icon.pink { background: var(--pink); }
+.feature-item-icon svg { width: 26px; height: 26px; fill: white; }
+.feature-item-body {}
+.feature-item-body h3 { font-size: 15px; font-weight: 700; color: var(--green); margin-bottom: 6px; }
+.feature-item-body.pink-title h3 { color: var(--pink); }
+.feature-item-body p { font-size: 13px; color: var(--text-light); line-height: 1.8; }
+
+/* ── TESTIMONIALS ── */
+.testimonials { background: var(--bg); }
+.testimonials-sub { text-align: center; font-size: 12px; color: var(--text-muted); margin-bottom: 36px; }
+.testimonials-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+  max-width: 860px; margin: 0 auto 28px;
+}
+.testimonial-card {
+  border: 1.5px solid var(--border); border-radius: var(--radius); padding: 24px;
+  position: relative; background: white;
+}
+.testimonial-card.green-border { border-color: var(--green); }
+.testimonial-card.pink-border { border-color: var(--pink); }
+.testimonial-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.testimonial-avatar {
+  width: 52px; height: 52px; border-radius: 50%; flex-shrink: 0; overflow: hidden;
+  background: var(--green-light);
+  display: flex; align-items: center; justify-content: center;
+}
+.testimonial-highlight {
+  font-size: 14px; font-weight: 700; color: var(--green); margin-bottom: 10px;
+}
+.testimonial-card.pink-border .testimonial-highlight { color: var(--pink); }
+.testimonial-card p { font-size: 13px; color: var(--text-light); line-height: 1.8; margin-bottom: 8px; }
+.testimonial-role { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+.testimonial-actions {
+  display: flex; justify-content: center; gap: 16px; margin-top: 4px;
+}
+.btn-outline-green {
+  border: 1.5px solid var(--green); color: var(--green); background: white;
+  padding: 9px 24px; border-radius: 24px; font-size: 13px; font-weight: 600;
+  cursor: pointer; display: inline-flex; align-items: center; gap: 4px;
+}
+.btn-outline-pink {
+  border: 1.5px solid var(--pink); color: var(--pink); background: white;
+  padding: 9px 24px; border-radius: 24px; font-size: 13px; font-weight: 600;
+  cursor: pointer; display: inline-flex; align-items: center; gap: 4px;
+}
+
+/* ── COURSES ── */
+.courses { background: white; }
+.course-grid {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 16px;
+  max-width: 960px; margin: 0 auto 36px;
+}
+.course-card {
+  background: white; border-radius: var(--radius); padding: 20px 16px;
+  border: 1px solid var(--border); box-shadow: var(--shadow);
+  display: flex; flex-direction: column;
+}
+.course-card-title { font-size: 14px; font-weight: 700; color: var(--green); margin-bottom: 12px; }
+.course-card-row { font-size: 12px; color: var(--text-light); margin-bottom: 4px; display: flex; align-items: center; gap: 4px; }
+.course-card-arrow {
+  display: flex; align-items: center; justify-content: flex-end; margin-top: auto; padding-top: 12px;
+}
+.arrow-circle {
+  width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid var(--green);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--green); font-size: 14px;
+}
+.tech-row {
+  display: flex; justify-content: center; align-items: center; gap: 20px;
+  flex-wrap: wrap; max-width: 860px; margin: 0 auto 40px; padding: 16px 0;
+}
+.tech-item { text-align: center; }
+.tech-item-icon {
+  width: 44px; height: 44px; border-radius: 8px; margin: 0 auto 6px;
+  display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 11px;
+}
+.tech-item-icon.html5 { background: #E34F26; color: white; }
+.tech-item-icon.css3 { background: #1572B6; color: white; }
+.tech-item-icon.js { background: #F7DF1E; color: #333; }
+.tech-item-icon.jquery { background: #0769AD; color: white; }
+.tech-item-icon.wp { background: #21759B; color: white; }
+.tech-item-icon.ps { background: #31A8FF; color: white; }
+.tech-item-icon.ai { background: #FF9A00; color: white; }
+.tech-item-icon.figma { background: #A259FF; color: white; }
+.tech-item span { font-size: 10px; color: var(--text-muted); display: block; }
+.tech-label { text-align: center; font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 16px; }
+
+/* ── WEB COURSE FLOW ── */
+.course-flow { background: var(--bg); padding: 56px 80px; }
+.course-flow-title { text-align: center; font-size: 20px; font-weight: 700; margin-bottom: 40px; }
+.flow-steps {
+  display: flex; align-items: flex-start; justify-content: center;
+  max-width: 900px; margin: 0 auto 36px; gap: 0;
+}
+.flow-step { text-align: center; flex: 1; padding: 0 8px; }
+.flow-step-label {
+  font-size: 10px; font-weight: 700; color: var(--text-muted); letter-spacing: 1px;
+  text-transform: uppercase; margin-bottom: 12px;
+}
+.flow-step-icon {
+  width: 64px; height: 64px; border-radius: 12px;
+  background: white; border: 1.5px solid var(--border); margin: 0 auto 12px;
+  display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow);
+}
+.flow-step-icon svg { width: 30px; height: 30px; }
+.flow-step strong { display: block; font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+.flow-step p { font-size: 11px; color: var(--text-muted); line-height: 1.6; }
+.flow-arrow {
+  font-size: 18px; color: #CCC; flex-shrink: 0; padding-top: 48px; align-self: flex-start;
+}
+.flow-bottom {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  max-width: 900px; margin: 0 auto 32px; gap: 20px;
+}
+.flow-bottom-item {
+  display: flex; align-items: flex-start; gap: 10px; flex: 1;
+}
+.flow-bottom-icon {
+  width: 36px; height: 36px; border-radius: 50%; background: var(--green-light); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.flow-bottom-icon svg { width: 18px; height: 18px; }
+.flow-bottom-item p { font-size: 12px; color: var(--text-light); line-height: 1.6; }
+.flow-cta-btn {
+  display: flex; justify-content: center;
+}
+.btn-outline-green-lg {
+  border: 1.5px solid var(--green); color: var(--green); background: white;
+  padding: 11px 36px; border-radius: 24px; font-size: 13px; font-weight: 600;
+  cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
+}
+
+/* ── COUNSELING CTA ── */
+.counseling-cta {
+  background: linear-gradient(135deg, #3DBFA8 0%, #5DD4BD 50%, #3DBFA8 100%);
+  padding: 48px 80px;
+  display: flex; align-items: center; gap: 40px; position: relative; overflow: hidden;
+}
+.counseling-cta::before {
+  content: ''; position: absolute;
+  width: 280px; height: 280px; border-radius: 50%;
+  background: rgba(255,255,255,0.07); top: -120px; left: 40%;
+}
+.counseling-cta::after {
+  content: ''; position: absolute;
+  width: 180px; height: 180px; border-radius: 50%;
+  background: rgba(255,255,255,0.05); bottom: -80px; left: 30%;
+}
+.counseling-content { flex: 1; color: white; z-index: 1; }
+.counseling-content h2 { font-size: 26px; font-weight: 900; margin-bottom: 20px; line-height: 1.45; }
+.counseling-tags { display: flex; gap: 10px; margin-bottom: 28px; flex-wrap: wrap; }
+.counseling-tag {
+  background: rgba(255,255,255,0.22); color: white;
+  padding: 5px 14px; border-radius: 14px; font-size: 12px; font-weight: 600;
+}
+.counseling-actions { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+.btn-counseling-dl {
+  background: white; color: var(--green-dark); font-weight: 700; font-size: 13px;
+  padding: 13px 24px; border-radius: 28px; border: none; cursor: pointer;
+  display: flex; align-items: center; gap: 7px; box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+}
+.btn-counseling-book {
+  background: white; color: var(--green-dark); font-weight: 700; font-size: 13px;
+  padding: 13px 24px; border-radius: 28px; border: none; cursor: pointer;
+  display: flex; align-items: center; gap: 7px; box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+}
+.counseling-image {
+  flex: 0 0 220px; z-index: 1; align-self: flex-end;
+  height: 220px; border-radius: 12px; overflow: hidden;
+  background: rgba(255,255,255,0.15);
+  display: flex; align-items: flex-end; justify-content: center;
+}
+
+/* ── DOWNLOAD ── */
+.download { background: white; padding: 60px 80px; }
+.download-inner {
+  max-width: 820px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;
+}
+.download-visual {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 20px;
+}
+.download-book-wrap {
+  display: flex; gap: -20px; position: relative; margin-bottom: 4px;
+}
+.download-book {
+  background: linear-gradient(145deg, #2A9E8A, #3DBFA8);
+  border-radius: 8px; width: 130px; height: 170px;
+  display: flex; align-items: center; justify-content: center; color: white;
+  font-size: 12px; font-weight: 700; text-align: center; padding: 16px;
+  box-shadow: 6px 6px 0 rgba(0,0,0,0.08);
+}
+.download-book2 {
+  background: white; border: 1px solid var(--border);
+  border-radius: 8px; width: 110px; height: 150px;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.05); margin-left: -20px; margin-top: 20px;
+  font-size: 10px; color: var(--text-muted); text-align: center; padding: 12px;
+}
+.download-items-title { font-size: 15px; font-weight: 700; margin-bottom: 12px; }
+.download-list { list-style: none; }
+.download-list li {
+  padding: 5px 0; font-size: 13px; display: flex; align-items: center; gap: 8px; color: var(--text-light);
+}
+.download-list li::before {
+  content: ''; width: 18px; height: 18px; border-radius: 50%;
+  background: var(--green); flex-shrink: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M5 9l3 3 5-5' stroke='white' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: 18px 18px;
+}
+.download-form {}
+.download-form-title { font-size: 15px; font-weight: 700; margin-bottom: 20px; text-align: center; }
+.form-field { margin-bottom: 14px; }
+.form-field label { display: block; font-size: 12px; font-weight: 600; margin-bottom: 5px; color: var(--text); }
+.form-field input {
+  width: 100%; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: 8px;
+  font-size: 13px; font-family: inherit; outline: none; color: var(--text);
+}
+.form-field input::placeholder { color: var(--text-muted); }
+.btn-download {
+  width: 100%; background: var(--pink); color: white; font-weight: 700; font-size: 14px;
+  padding: 14px; border-radius: 28px; border: none; cursor: pointer; margin-top: 8px;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+}
+
+/* ── SUPPORT ── */
+.support { background: var(--bg); padding: 60px 80px; }
+.support-sub { text-align: center; font-size: 12px; color: var(--text-muted); margin-bottom: 40px; }
+.support-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 0;
+  max-width: 860px; margin: 0 auto;
+}
+.support-card { text-align: left; padding: 20px 28px; display: flex; gap: 16px; align-items: flex-start; }
+.support-icon-wrap {
+  width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.support-icon-wrap.green { background: var(--green-light); }
+.support-icon-wrap.pink { background: var(--pink-light); }
+.support-icon-wrap svg { width: 28px; height: 28px; }
+.support-card-body strong { display: block; font-size: 14px; font-weight: 700; color: var(--green); margin-bottom: 6px; }
+.support-card-body.pink strong { color: var(--pink); }
+.support-card-body p { font-size: 12px; color: var(--text-light); line-height: 1.7; }
+
+/* ── ENROLLMENT ── */
+.enrollment { background: white; padding: 60px 80px; }
+.enroll-steps {
+  display: flex; align-items: flex-start; max-width: 900px; margin: 0 auto; position: relative;
+}
+.enroll-steps::before {
+  content: ''; position: absolute;
+  top: 30px; left: 10%; right: 10%; height: 2px;
+  border-top: 2px dashed #DDD; z-index: 0;
+}
+.enroll-step {
+  flex: 1; text-align: center; padding: 0 8px; position: relative; z-index: 1;
+}
+.enroll-num {
+  width: 60px; height: 60px; border-radius: 50%;
+  background: white; color: var(--green); font-size: 16px; font-weight: 900;
+  display: flex; align-items: center; justify-content: center; margin: 0 auto 14px;
+  border: 2px solid var(--green); font-family: Georgia, serif; letter-spacing: .5px;
+}
+.enroll-step strong { display: block; font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.enroll-step p { font-size: 11px; color: var(--text-muted); }
+
+/* ── FAQ ── */
+.faq { background: var(--bg); padding: 60px 80px; }
+.faq-list { max-width: 760px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-question {
+  padding: 18px 0; display: flex; justify-content: space-between; align-items: center;
+  cursor: pointer; font-size: 14px; font-weight: 500; gap: 16px;
+}
+.faq-toggle {
+  width: 22px; height: 22px; flex-shrink: 0; color: var(--text-muted); font-size: 20px;
+  display: flex; align-items: center; justify-content: center; font-weight: 300;
+  transition: transform .3s;
+}
+.faq-item.open .faq-toggle { transform: rotate(45deg); }
+.faq-answer {
+  max-height: 0; overflow: hidden; transition: max-height .3s ease, padding .3s;
+  font-size: 13px; color: var(--text-light); line-height: 1.8;
+}
+.faq-item.open .faq-answer { max-height: 200px; padding-bottom: 18px; }
+
+/* ── BLOG ── */
+.blog { background: white; padding: 60px 80px; }
+.blog-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 20px;
+  max-width: 900px; margin: 0 auto 32px;
+}
+.blog-card {
+  background: white; border-radius: var(--radius); overflow: hidden;
+  border: 1px solid var(--border); box-shadow: var(--shadow);
+}
+.blog-thumb {
+  height: 150px; overflow: hidden; position: relative;
+  background: #EEE; display: flex; align-items: center; justify-content: center;
+}
+.blog-thumb svg { width: 100%; height: 100%; }
+.blog-body { padding: 14px 16px; }
+.blog-date { font-size: 11px; color: var(--text-muted); margin-bottom: 6px; }
+.blog-card h4 { font-size: 13px; font-weight: 600; line-height: 1.6; margin-bottom: 10px; }
+.blog-tag {
+  font-size: 11px; padding: 3px 10px; border-radius: 10px; display: inline-block;
+  font-weight: 500;
+}
+.blog-tag.green { color: var(--green); background: var(--green-light); }
+.blog-tag.pink { color: var(--pink); background: var(--pink-light); }
+.blog-tag.blue { color: #3B82F6; background: #EFF6FF; }
+.blog-cta { display: flex; justify-content: center; }
+.btn-blog {
+  border: 1.5px solid var(--pink); color: var(--pink); background: white;
+  padding: 10px 32px; border-radius: 24px; font-size: 13px; font-weight: 600;
+  cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: #2C2F3A; color: #aaa; padding: 48px 80px 24px;
+}
+.footer-inner {
+  max-width: 960px; margin: 0 auto;
+  display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px;
+  margin-bottom: 36px;
+}
+.footer-logo { color: white; font-size: 17px; font-weight: 700; margin-bottom: 10px; display: block; }
+.footer-about { font-size: 12px; line-height: 1.9; margin-bottom: 16px; }
+.footer-sns { display: flex; gap: 10px; }
+.sns-icon {
+  width: 30px; height: 30px; border-radius: 50%; background: #3a4150;
+  display: flex; align-items: center; justify-content: center; font-size: 13px; color: white;
+}
+.footer-col h5 { color: white; font-size: 13px; font-weight: 700; margin-bottom: 14px; }
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 10px; }
+.footer-col a { font-size: 12px; color: #999; }
+.footer-bottom {
+  border-top: 1px solid #3a4150; padding-top: 18px; text-align: center;
+  font-size: 11px; color: #555;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  header { padding: 0 20px; }
+  nav { display: none; }
+  .hero, .section, .course-flow, .counseling-cta, .download, .support, .enrollment, .faq, .blog { padding-left: 20px; padding-right: 20px; }
+  .hero { flex-direction: column; padding-top: 36px; }
+  .hero-image { flex: none; width: 100%; }
+  .hero-title { font-size: 34px; }
+  .pain-grid, .solution-grid, .features-grid, .course-grid, .support-grid, .blog-grid { grid-template-columns: 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .download-inner { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+  .enroll-steps { flex-wrap: wrap; }
+  .enroll-steps::before { display: none; }
+  .counseling-cta { flex-direction: column; }
+  .flow-steps { flex-direction: column; align-items: center; gap: 0; }
+  .flow-arrow { transform: rotate(90deg); padding-top: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">
+    <div class="logo-icon">
+      <svg viewBox="0 0 20 20"><path d="M3 5h14v2H3V5zm0 4h14v2H3V9zm0 4h8v2H3v-2z"/></svg>
+    </div>
+    WEBMASTERS
+  </div>
+  <nav>
+    <a href="#">コース一覧</a>
+    <a href="#">名コースの詳細</a>
+    <a href="#">卒業生の声</a>
+    <a href="#">ブログ</a>
+  </nav>
+  <div class="header-actions">
+    <button class="btn-dl">
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1v8M3 6l3.5 3.5L10 6" stroke="#3DBFA8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 11h11" stroke="#3DBFA8" stroke-width="1.5" stroke-linecap="round"/></svg>
+      資料ダウンロード
+    </button>
+    <button class="btn-cta">
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="2" width="11" height="10" rx="1.5" stroke="white" stroke-width="1.3"/><path d="M4 1v2M9 1v2M1 5h11" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg>
+      無料カウンセリング予約
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-deco-circle-1"></div>
+  <div class="deco-dots dots-tl"></div>
+  <div class="deco-dots dots-bl"></div>
+  <div class="hero-content">
+    <h1 class="hero-title"><span class="accent">Webスキル</span>で、<br>稼げる自分へ</h1>
+    <p class="hero-sub">実践エンジニアの開発指導で、副業収入を実現</p>
+    <div class="hero-stats">
+      <div class="stat-badge">
+        <div class="stat-wreath">
+          <svg class="wreath" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+            <path d="M48 8 C30 8 16 22 16 40 C16 58 30 72 48 72 C66 72 80 58 80 40 C80 22 66 8 48 8 Z" fill="none" stroke="#E8B84B" stroke-width="1.5" stroke-dasharray="4 3" opacity=".6"/>
+            <!-- laurel left -->
+            <path d="M20 50 Q14 44 16 36 Q22 38 22 46" fill="#E8B84B" opacity=".5"/>
+            <path d="M18 58 Q10 52 12 42 Q18 46 18 56" fill="#E8B84B" opacity=".4"/>
+            <path d="M20 66 Q12 60 15 50 Q20 55 18 65" fill="#E8B84B" opacity=".3"/>
+            <!-- laurel right -->
+            <path d="M76 50 Q82 44 80 36 Q74 38 74 46" fill="#E8B84B" opacity=".5"/>
+            <path d="M78 58 Q86 52 84 42 Q78 46 78 56" fill="#E8B84B" opacity=".4"/>
+            <path d="M76 66 Q84 60 81 50 Q76 55 78 65" fill="#E8B84B" opacity=".3"/>
+          </svg>
+          <div class="stat-inner">
+            <div class="stat-label-top">受講満足度</div>
+            <div class="stat-num">95<span>%</span></div>
+          </div>
+        </div>
+        <div class="stat-source">※1 2024年 受講生アンケートより</div>
+      </div>
+      <div class="stat-badge">
+        <div class="stat-wreath">
+          <svg class="wreath" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+            <path d="M48 8 C30 8 16 22 16 40 C16 58 30 72 48 72 C66 72 80 58 80 40 C80 22 66 8 48 8 Z" fill="none" stroke="#E8B84B" stroke-width="1.5" stroke-dasharray="4 3" opacity=".6"/>
+            <path d="M20 50 Q14 44 16 36 Q22 38 22 46" fill="#E8B84B" opacity=".5"/>
+            <path d="M18 58 Q10 52 12 42 Q18 46 18 56" fill="#E8B84B" opacity=".4"/>
+            <path d="M20 66 Q12 60 15 50 Q20 55 18 65" fill="#E8B84B" opacity=".3"/>
+            <path d="M76 50 Q82 44 80 36 Q74 38 74 46" fill="#E8B84B" opacity=".5"/>
+            <path d="M78 58 Q86 52 84 42 Q78 46 78 56" fill="#E8B84B" opacity=".4"/>
+            <path d="M76 66 Q84 60 81 50 Q76 55 78 65" fill="#E8B84B" opacity=".3"/>
+          </svg>
+          <div class="stat-inner">
+            <div class="stat-label-top">案件獲得率</div>
+            <div class="stat-num">94<span>%</span></div>
+          </div>
+        </div>
+        <div class="stat-source">※2 2024年 受講データより</div>
+      </div>
+      <div class="stat-badge">
+        <div class="stat-wreath">
+          <svg class="wreath" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+            <path d="M48 8 C30 8 16 22 16 40 C16 58 30 72 48 72 C66 72 80 58 80 40 C80 22 66 8 48 8 Z" fill="none" stroke="#E8B84B" stroke-width="1.5" stroke-dasharray="4 3" opacity=".6"/>
+            <path d="M20 50 Q14 44 16 36 Q22 38 22 46" fill="#E8B84B" opacity=".5"/>
+            <path d="M18 58 Q10 52 12 42 Q18 46 18 56" fill="#E8B84B" opacity=".4"/>
+            <path d="M20 66 Q12 60 15 50 Q20 55 18 65" fill="#E8B84B" opacity=".3"/>
+            <path d="M76 50 Q82 44 80 36 Q74 38 74 46" fill="#E8B84B" opacity=".5"/>
+            <path d="M78 58 Q86 52 84 42 Q78 46 78 56" fill="#E8B84B" opacity=".4"/>
+            <path d="M76 66 Q84 60 81 50 Q76 55 78 65" fill="#E8B84B" opacity=".3"/>
+          </svg>
+          <div class="stat-inner">
+            <div class="stat-label-top">案件単価アップ率</div>
+            <div class="stat-num">90<span>%</span></div>
+          </div>
+        </div>
+        <div class="stat-source">※3 2024年 受講データより</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-image">
+    <div class="hero-photo">
+      <!-- Person with laptop illustration -->
+      <svg width="440" height="400" viewBox="0 0 440 400" xmlns="http://www.w3.org/2000/svg">
+        <rect width="440" height="400" fill="#EAF7F4"/>
+        <!-- bg shelf/wall -->
+        <rect x="260" y="40" width="160" height="8" rx="3" fill="#D0E8E2"/>
+        <rect x="290" y="20" width="4" height="28" fill="#C0D8D2"/>
+        <rect x="400" y="20" width="4" height="28" fill="#C0D8D2"/>
+        <!-- plant -->
+        <rect x="370" y="200" width="14" height="80" rx="4" fill="#A8D8CE"/>
+        <ellipse cx="377" cy="185" rx="28" ry="34" fill="#5EC2A8" opacity=".85"/>
+        <ellipse cx="358" cy="198" rx="18" ry="22" fill="#3DBFA8" opacity=".7"/>
+        <!-- book on shelf -->
+        <rect x="268" y="28" width="14" height="20" rx="2" fill="#FF9A8C"/>
+        <rect x="284" y="30" width="10" height="18" rx="2" fill="#FFD6A5"/>
+        <rect x="296" y="26" width="12" height="22" rx="2" fill="#A8D8F0"/>
+        <!-- desk -->
+        <rect x="40" y="290" width="380" height="10" rx="4" fill="#C8E4E0"/>
+        <!-- laptop base -->
+        <rect x="120" y="232" width="200" height="58" rx="6" fill="#D8ECE8"/>
+        <!-- laptop screen -->
+        <rect x="128" y="155" width="184" height="80" rx="5" fill="#3DBFA8"/>
+        <rect x="133" y="160" width="174" height="70" rx="3" fill="#F0FAF8"/>
+        <!-- code on screen -->
+        <rect x="142" y="168" width="70" height="5" rx="2.5" fill="#3DBFA8" opacity=".5"/>
+        <rect x="142" y="178" width="110" height="5" rx="2.5" fill="#3DBFA8" opacity=".3"/>
+        <rect x="150" y="188" width="55" height="5" rx="2.5" fill="#FF6B9D" opacity=".5"/>
+        <rect x="142" y="198" width="90" height="5" rx="2.5" fill="#3DBFA8" opacity=".3"/>
+        <rect x="142" y="208" width="60" height="5" rx="2.5" fill="#3DBFA8" opacity=".2"/>
+        <!-- person head -->
+        <circle cx="220" cy="108" r="36" fill="#FDDBB4"/>
+        <!-- hair -->
+        <path d="M184 95 Q186 68 220 64 Q254 68 256 95 Q248 80 220 78 Q192 80 184 95Z" fill="#3D2C1E"/>
+        <path d="M184 95 Q180 108 183 118 Q185 100 193 95Z" fill="#3D2C1E"/>
+        <path d="M256 95 Q260 108 257 118 Q255 100 247 95Z" fill="#3D2C1E"/>
+        <!-- face detail -->
+        <circle cx="210" cy="105" r="3.5" fill="#3D2C1E"/>
+        <circle cx="230" cy="105" r="3.5" fill="#3D2C1E"/>
+        <path d="M212 118 Q220 125 228 118" stroke="#C07050" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <!-- body / green jacket -->
+        <path d="M175 290 Q176 180 220 174 Q264 180 265 290Z" fill="#3DBFA8"/>
+        <!-- collar detail -->
+        <path d="M210 174 L220 196 L230 174" fill="#2A9E8A"/>
+        <!-- left arm -->
+        <path d="M178 200 Q150 226 148 258" stroke="#FDDBB4" stroke-width="20" stroke-linecap="round" fill="none"/>
+        <!-- right arm -->
+        <path d="M262 200 Q290 226 292 258" stroke="#FDDBB4" stroke-width="20" stroke-linecap="round" fill="none"/>
+        <!-- hands -->
+        <ellipse cx="156" cy="262" rx="16" ry="10" fill="#FDDBB4"/>
+        <ellipse cx="284" cy="262" rx="16" ry="10" fill="#FDDBB4"/>
+        <!-- deco dots -->
+        <circle cx="60" cy="70" r="42" fill="#C5EAE2" opacity=".3"/>
+        <circle cx="400" cy="45" r="24" fill="#FFD6E7" opacity=".35"/>
+      </svg>
+    </div>
+  </div>
+  <div class="hero-deco-circle-2"></div>
+  <div class="deco-dots dots-br"></div>
+</section>
+
+<!-- PAIN POINTS -->
+<section class="section pain">
+  <h2 class="section-title">こんな悩みありませんか？</h2>
+  <div class="divider-line"></div>
+  <div class="pain-grid">
+    <div class="pain-card">
+      <div class="pain-icon">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="18" cy="14" r="7" stroke="#FF6B9D" stroke-width="1.8"/>
+          <path d="M18 21v4" stroke="#FF6B9D" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M8 32c0-5.5 4.5-9 10-9s10 3.5 10 9" stroke="#FF6B9D" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M18 7v1M18 5v1" stroke="#FF6B9D" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M11 9l1 1M10 8l.7.7" stroke="#FF6B9D" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M25 9l-1 1M26 8l-.7.7" stroke="#FF6B9D" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p>何から始めて、<br>どう進めるべきかがわからない</p>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="5" y="7" width="26" height="18" rx="2.5" stroke="#FF6B9D" stroke-width="1.8"/>
+          <rect x="9" y="11" width="18" height="10" rx="1.5" fill="#FFD6E7"/>
+          <path d="M13 29h10M18 25v4" stroke="#FF6B9D" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M11 16h5M11 19h8" stroke="#FF6B9D" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p>独学に限界を感じている</p>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="5,28 12,18 18,22 24,13 31,8" stroke="#FF6B9D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="31" cy="8" r="2.5" fill="#FF6B9D"/>
+          <path d="M5 32h26" stroke="#FF6B9D" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p>すぐに稼ぐにつながる<br>スキルを身につけたい</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="section solution">
+  <h2 class="section-title">WEBMASTERS なら</h2>
+  <div class="divider-line"></div>
+  <div class="solution-grid">
+    <div class="solution-card">
+      <div class="solution-icon">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="5" width="28" height="22" rx="3" stroke="#3DBFA8" stroke-width="1.8"/>
+          <path d="M10 20l4-4-4-4" stroke="#3DBFA8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M16 20h10" stroke="#3DBFA8" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M12 31h12" stroke="#3DBFA8" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p>プロの教える、つくる過程で<br>学べるから実践を習得！</p>
+    </div>
+    <div class="solution-card">
+      <div class="solution-icon">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="14" r="5" stroke="#3DBFA8" stroke-width="1.8"/>
+          <circle cx="24" cy="14" r="5" stroke="#3DBFA8" stroke-width="1.8"/>
+          <path d="M4 30c0-4 3.6-7 8-7" stroke="#3DBFA8" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M32 30c0-4-3.6-7-8-7" stroke="#3DBFA8" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M14 30c0-4 1.8-6 4-6s4 2 4 6" stroke="#3DBFA8" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p>一緒に学ぶ仲間がいるから<br>挫折せずに続けられる</p>
+    </div>
+    <div class="solution-card">
+      <div class="solution-icon">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 4l3.5 10.8H33l-9.3 6.7 3.5 10.8L18 25.6l-9.2 6.7 3.5-10.8L3 14.8h11.5z" stroke="#3DBFA8" stroke-width="1.8" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <p>卒業後もサポートがあるので<br>安心してスキルアップが続く！</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section features">
+  <h2 class="section-title">特徴</h2>
+  <div class="divider-line"></div>
+  <p class="features-sub">WEBMASTERSが多くの方に選ばれている理由をご紹介します。</p>
+  <div class="feature-list">
+    <div class="feature-item">
+      <div class="feature-item-icon green">
+        <svg viewBox="0 0 26 26" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="13" cy="10" r="5" fill="white"/>
+          <path d="M5 22c0-4.4 3.6-8 8-8s8 3.6 8 8" fill="white"/>
+        </svg>
+      </div>
+      <div class="feature-item-body">
+        <h3>対面型のコーチングによる学習サポート</h3>
+        <p>専属コーチが学習ペースや理解度をフォロー。実践エンジニアに随時質問できる環境で、できる自信を身につけ、つまずきや疑問点の解消サポートを通し、着実に自信量が向上します。</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-item-icon pink">
+        <svg viewBox="0 0 26 26" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="20" height="20" rx="3" fill="white" opacity=".3"/>
+          <path d="M7 17l4-4-4-4 1.5-1.5 5.5 5.5-5.5 5.5L7 17zm8 1h7v-2h-7v2z" fill="white"/>
+        </svg>
+      </div>
+      <div class="feature-item-body pink-title">
+        <h3>現役エンジニアからのレビュー</h3>
+        <p>実際の開発現場で活躍するエンジニアから、細部まで改善やコードの書き方のフィードバックで、確実に通用するコード品質を向上させることができます。</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-item-icon green">
+        <svg viewBox="0 0 26 26" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="3" width="18" height="22" rx="2" fill="white" opacity=".3"/>
+          <path d="M4 3h18a2 2 0 012 2v18a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2z" stroke="white" stroke-width="1.5" fill="none"/>
+          <path d="M7 9h12M7 13h12M7 17h8" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="feature-item-body">
+        <h3>一生使えるカリキュラム</h3>
+        <p>Web制作の基礎から応用まで、体系的に学べるカリキュラムを用意。卒業後も見直しが可能で、最新のスキルへアップデートします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials">
+  <h2 class="section-title">卒業生の声</h2>
+  <div class="divider-line"></div>
+  <p class="testimonials-sub">WEBMASTERSを受講した方の声でご紹介します。</p>
+  <div class="testimonials-grid">
+    <div class="testimonial-card green-border">
+      <div class="testimonial-header">
+        <div class="testimonial-avatar">
+          <svg width="40" height="40" viewBox="0 0 40 40">
+            <circle cx="20" cy="15" r="8" fill="#3DBFA8" opacity=".7"/>
+            <ellipse cx="20" cy="35" rx="13" ry="9" fill="#3DBFA8" opacity=".5"/>
+          </svg>
+        </div>
+        <div class="testimonial-highlight">副業で月15万円の収入を達成！</div>
+      </div>
+      <p>独学で難しい点が多かった。プロのサポートで一気に理解が深まりました。学習が進むほど、実践の課題が見えてきて自信が持てました！</p>
+      <div class="testimonial-role">30代・会社員</div>
+    </div>
+    <div class="testimonial-card pink-border">
+      <div class="testimonial-header">
+        <div class="testimonial-avatar" style="background: var(--pink-light)">
+          <svg width="40" height="40" viewBox="0 0 40 40">
+            <circle cx="20" cy="15" r="8" fill="#FF6B9D" opacity=".7"/>
+            <ellipse cx="20" cy="35" rx="13" ry="9" fill="#FF6B9D" opacity=".5"/>
+          </svg>
+        </div>
+        <div class="testimonial-highlight">フリーランスとして独立！</div>
+      </div>
+      <p>案件獲得までサポートしてもらえたので、受講後すぐに仕事につながりました。今では月30万円以上の収入を達成しています。</p>
+      <div class="testimonial-role">20代・フリーランス</div>
+    </div>
+  </div>
+  <div class="testimonial-actions">
+    <a class="btn-outline-green" href="#">他の卒業生の声を見る ›</a>
+    <a class="btn-outline-pink" href="#">インタビュー記事はこちら ›</a>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section class="section courses">
+  <h2 class="section-title">コース一覧</h2>
+  <div class="divider-line"></div>
+  <div class="course-grid">
+    <div class="course-card">
+      <div class="course-card-title">Web制作コース</div>
+      <div class="course-card-row">学習期間：6ヶ月</div>
+      <div class="course-card-row">料金：330,000円</div>
+      <div class="course-card-arrow"><div class="arrow-circle">›</div></div>
+    </div>
+    <div class="course-card">
+      <div class="course-card-title">Web制作実践コース</div>
+      <div class="course-card-row">学習期間：9ヶ月</div>
+      <div class="course-card-row">料金：440,000円</div>
+      <div class="course-card-arrow"><div class="arrow-circle">›</div></div>
+    </div>
+    <div class="course-card">
+      <div class="course-card-title">Webデザインコース</div>
+      <div class="course-card-row">学習期間：6ヶ月</div>
+      <div class="course-card-row">料金：330,000円</div>
+      <div class="course-card-arrow"><div class="arrow-circle">›</div></div>
+    </div>
+    <div class="course-card">
+      <div class="course-card-title">動画編集コース</div>
+      <div class="course-card-row">学習期間：6ヶ月</div>
+      <div class="course-card-row">料金：330,000円</div>
+      <div class="course-card-arrow"><div class="arrow-circle">›</div></div>
+    </div>
+  </div>
+  <p class="tech-label">学習する主な技術</p>
+  <div class="tech-row">
+    <div class="tech-item"><div class="tech-item-icon html5">HTML5</div><span>HTML5</span></div>
+    <div class="tech-item"><div class="tech-item-icon css3">CSS3</div><span>CSS3</span></div>
+    <div class="tech-item"><div class="tech-item-icon js">JS</div><span>JavaScript</span></div>
+    <div class="tech-item"><div class="tech-item-icon jquery">jQ</div><span>jQuery</span></div>
+    <div class="tech-item"><div class="tech-item-icon wp">WP</div><span>WordPress</span></div>
+    <div class="tech-item"><div class="tech-item-icon ps">Ps</div><span>Photoshop</span></div>
+    <div class="tech-item"><div class="tech-item-icon ai">Ai</div><span>Illustrator</span></div>
+    <div class="tech-item"><div class="tech-item-icon figma">Fg</div><span>Figma等</span></div>
+  </div>
+</section>
+
+<!-- WEB COURSE FLOW -->
+<div class="course-flow">
+  <h3 class="course-flow-title">Web制作コース</h3>
+  <div class="flow-steps">
+    <div class="flow-step">
+      <div class="flow-step-label">STEP 01</div>
+      <div class="flow-step-icon">
+        <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="5" width="22" height="20" rx="2.5" stroke="#3DBFA8" stroke-width="1.8"/>
+          <path d="M9 15l4-4-4-4M15 18h6" stroke="#3DBFA8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <strong>基礎を学ぶ</strong>
+      <p>HTML / CSS<br>基礎知識の習得</p>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="flow-step-label">STEP 02</div>
+      <div class="flow-step-icon">
+        <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="15" cy="15" r="10" stroke="#3DBFA8" stroke-width="1.8"/>
+          <path d="M10 15l3 3 7-7" stroke="#3DBFA8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <strong>スキルを習得</strong>
+      <p>JavaScript / jQuery<br>実践的コーディング</p>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="flow-step-label">STEP 03</div>
+      <div class="flow-step-icon">
+        <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="5" width="24" height="20" rx="2.5" stroke="#3DBFA8" stroke-width="1.8"/>
+          <circle cx="15" cy="15" r="5" stroke="#3DBFA8" stroke-width="1.5"/>
+          <path d="M15 10v2M15 18v2M10 15h2M18 15h2" stroke="#3DBFA8" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <strong>WordPressを学ぶ</strong>
+      <p>サイト構築・カスタマイズ<br>オリジナルテーマ作成</p>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="flow-step-label">STEP 04</div>
+      <div class="flow-step-icon">
+        <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="6" width="22" height="18" rx="2.5" stroke="#3DBFA8" stroke-width="1.8"/>
+          <path d="M4 11h22" stroke="#3DBFA8" stroke-width="1.5"/>
+          <path d="M9 17h12M9 21h8" stroke="#3DBFA8" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <strong>案件に挑戦</strong>
+      <p>ポートフォリオ制作<br>案件獲得サポート</p>
+    </div>
+  </div>
+  <div class="flow-bottom">
+    <div class="flow-bottom-item">
+      <div class="flow-bottom-icon">
+        <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="9" cy="7" r="4" stroke="#3DBFA8" stroke-width="1.5"/>
+          <path d="M3 17c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#3DBFA8" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p>ポートフォリオ制作を通じて<br>実践的な開発スキルが身につく</p>
+    </div>
+    <div class="flow-bottom-item" style="justify-content: flex-end;">
+      <div class="flow-bottom-icon">
+        <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="9" cy="7" r="4" stroke="#3DBFA8" stroke-width="1.5"/>
+          <path d="M3 17c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#3DBFA8" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p>現役エンジニアのレビューで<br>クオリティの高い制作物に</p>
+    </div>
+  </div>
+  <div class="flow-cta-btn">
+    <a class="btn-outline-green-lg" href="#">他のコースの詳細を見る ›</a>
+  </div>
+</div>
+
+<!-- COUNSELING CTA -->
+<section class="counseling-cta">
+  <div class="counseling-content">
+    <h2>無料カウンセリングで<br>あなたのキャリアを相談しよう！</h2>
+    <div class="counseling-tags">
+      <span class="counseling-tag">完全無料</span>
+      <span class="counseling-tag">オンラインOK</span>
+      <span class="counseling-tag">期限な制限なし</span>
+    </div>
+    <div class="counseling-actions">
+      <button class="btn-counseling-dl">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 1v9M4 7l3.5 3.5L11 7" stroke="#2A9E8A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 13h13" stroke="#2A9E8A" stroke-width="1.5" stroke-linecap="round"/></svg>
+        資料ダウンロードはこちら ›
+      </button>
+      <button class="btn-counseling-book">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="1" y="2" width="13" height="12" rx="1.5" stroke="#2A9E8A" stroke-width="1.3"/><path d="M4 1v2M11 1v2M1 6h13" stroke="#2A9E8A" stroke-width="1.3" stroke-linecap="round"/></svg>
+        無料カウンセリングを予約する ›
+      </button>
+    </div>
+  </div>
+  <div class="counseling-image">
+    <svg width="220" height="220" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+      <rect width="220" height="220" fill="rgba(255,255,255,0.15)" rx="12"/>
+      <!-- woman silhouette -->
+      <circle cx="110" cy="65" r="32" fill="rgba(255,255,255,0.4)"/>
+      <ellipse cx="110" cy="170" rx="55" ry="60" fill="rgba(255,255,255,0.3)"/>
+      <text x="110" y="200" font-size="10" fill="white" text-anchor="middle" font-family="Noto Sans JP, sans-serif" opacity=".6">カウンセラー写真</text>
+    </svg>
+  </div>
+</section>
+
+<!-- DOWNLOAD -->
+<section class="download">
+  <h2 class="section-title">資料ダウンロード</h2>
+  <div class="divider-line"></div>
+  <div class="download-inner">
+    <div class="download-visual">
+      <div class="download-book-wrap">
+        <div class="download-book">WEBMASTERS<br>スクール資料<br><span style="font-size:10px;opacity:.8">カリキュラム詳細</span></div>
+        <div class="download-book2">料金表・<br>サポート<br>詳細</div>
+      </div>
+      <div class="download-items-title">資料で分かること</div>
+      <ul class="download-list">
+        <li>カリキュラムの詳細</li>
+        <li>サポート体制について</li>
+        <li>料金プランと支払い方法</li>
+      </ul>
+    </div>
+    <div class="download-form">
+      <div class="form-field">
+        <label>お名前</label>
+        <input type="text" placeholder="例：山田太郎">
+      </div>
+      <div class="form-field">
+        <label>メールアドレス</label>
+        <input type="email" placeholder="例：example@mail.com">
+      </div>
+      <button class="btn-download">資料をダウンロードする ›</button>
+    </div>
+  </div>
+</section>
+
+<!-- SUPPORT -->
+<section class="support">
+  <h2 class="section-title">学習サポート</h2>
+  <div class="divider-line"></div>
+  <p class="support-sub">いつでも安心して学習に取り組める環境を整えています。</p>
+  <div class="support-grid">
+    <div class="support-card">
+      <div class="support-icon-wrap green">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <path d="M4 8h20a2 2 0 012 2v10a2 2 0 01-2 2H8l-5 4V10a2 2 0 012-2z" stroke="#3DBFA8" stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M9 14h10M9 18h6" stroke="#3DBFA8" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="support-card-body">
+        <strong>チャットサポート</strong>
+        <p>専属コーチにいつでも質問可能。疑問をすぐに解決できます。</p>
+      </div>
+    </div>
+    <div class="support-card">
+      <div class="support-icon-wrap pink">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <rect x="3" y="4" width="22" height="20" rx="2.5" stroke="#FF6B9D" stroke-width="1.8"/>
+          <path d="M8 12h5M8 16h12M8 20h9" stroke="#FF6B9D" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="19" cy="9" r="4" fill="#FFD6E7" stroke="#FF6B9D" stroke-width="1.3"/>
+          <path d="M17.5 9l1 1 2-2" stroke="#FF6B9D" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="support-card-body pink">
+        <strong>個別レビュー</strong>
+        <p>提出した課題は現役エンジニアが丁寧にレビューします。</p>
+      </div>
+    </div>
+    <div class="support-card">
+      <div class="support-icon-wrap green">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <circle cx="10" cy="10" r="5" stroke="#3DBFA8" stroke-width="1.8"/>
+          <circle cx="20" cy="10" r="5" stroke="#3DBFA8" stroke-width="1.8"/>
+          <path d="M3 24c0-3.9 3.1-7 7-7" stroke="#3DBFA8" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M25 24c0-3.9-3.1-7-7-7" stroke="#3DBFA8" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M12 24c0-3.5 1.8-6 3-6s3 2.5 3 6" stroke="#3DBFA8" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="support-card-body">
+        <strong>キャリアサポート</strong>
+        <p>案件獲得のサポートやキャリア相談も実施。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENROLLMENT FLOW -->
+<section class="section enrollment" style="background:white;">
+  <h2 class="section-title">受講の流れ</h2>
+  <div class="divider-line"></div>
+  <div class="enroll-steps">
+    <div class="enroll-step">
+      <div class="enroll-num">01</div>
+      <strong>無料相談</strong>
+      <p>気軽にご相談ください</p>
+    </div>
+    <div class="enroll-step">
+      <div class="enroll-num">02</div>
+      <strong>カウンセリング</strong>
+      <p>学習プランをご提案</p>
+    </div>
+    <div class="enroll-step">
+      <div class="enroll-num">03</div>
+      <strong>お申し込み</strong>
+      <p>手続きを行います</p>
+    </div>
+    <div class="enroll-step">
+      <div class="enroll-num">04</div>
+      <strong>学習開始</strong>
+      <p>専属サポートで学習開始</p>
+    </div>
+    <div class="enroll-step">
+      <div class="enroll-num">05</div>
+      <strong>案件獲得・副業開始</strong>
+      <p>目標達成をサポート</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <h2 class="section-title">よくある質問</h2>
+  <div class="divider-line"></div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span>プログラミング未経験でも大丈夫ですか？</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        はい、もちろんです。当スクールは完全未経験の方を対象としたカリキュラムを用意しています。パソコン操作ができれば問題なく受講いただけます。
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span>学習期間はどのくらい必要ですか？</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        コースによって異なりますが、週15〜20時間程度の学習時間をおすすめしています。お仕事や家事と両立しながら学習できるよう、柔軟なスケジュールに対応しています。
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span>受講料のお支払い方法を教えてください。</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        一括払いのほか、最大24回の分割払いに対応しています。詳しくは無料カウンセリングにてご確認ください。
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span>受講期間中のサポートはありますか？</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        専属コーチによるチャットサポート、コードレビュー、定期面談など手厚いサポートをご用意しています。卒業後も継続してご利用いただけます。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="blog">
+  <h2 class="section-title">ブログ</h2>
+  <div class="divider-line"></div>
+  <div class="blog-grid">
+    <div class="blog-card">
+      <div class="blog-thumb" style="background: linear-gradient(135deg,#D0ECE8,#E8F5F0)">
+        <svg width="100%" height="150" viewBox="0 0 300 150"><rect width="300" height="150" fill="#D0ECE8"/><text x="150" y="75" font-size="11" fill="#3DBFA8" text-anchor="middle" font-family="monospace" opacity=".6">[ blog image ]</text></svg>
+      </div>
+      <div class="blog-body">
+        <div class="blog-date">2024.05.15</div>
+        <h4>Web制作の基礎で稼ぐために必要なスキルとは？</h4>
+        <span class="blog-tag green">Web制作</span>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-thumb" style="background: linear-gradient(135deg,#E8ECF5,#D6E0F0)">
+        <svg width="100%" height="150" viewBox="0 0 300 150"><rect width="300" height="150" fill="#E8ECF5"/><text x="150" y="75" font-size="11" fill="#5B7BB4" text-anchor="middle" font-family="monospace" opacity=".6">[ blog image ]</text></svg>
+      </div>
+      <div class="blog-body">
+        <div class="blog-date">2024.05.10</div>
+        <h4>未経験からプログラマーになるためのロードマップ</h4>
+        <span class="blog-tag blue">プログラミング</span>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-thumb" style="background: linear-gradient(135deg,#F5EAD6,#EDE0C8)">
+        <svg width="100%" height="150" viewBox="0 0 300 150"><rect width="300" height="150" fill="#F5EAD6"/><text x="150" y="75" font-size="11" fill="#8B6A3A" text-anchor="middle" font-family="monospace" opacity=".6">[ blog image ]</text></svg>
+      </div>
+      <div class="blog-body">
+        <div class="blog-date">2024.05.05</div>
+        <h4>WordPressでオリジナルテーマを作るメリット</h4>
+        <span class="blog-tag pink">WordPress</span>
+      </div>
+    </div>
+  </div>
+  <div class="blog-cta">
+    <a class="btn-blog" href="#">ブログ一覧を見る ›</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <span class="footer-logo">WEBMASTERS</span>
+      <p class="footer-about">実践型のWebオンライン<br>プログラミングスクール</p>
+      <div class="footer-sns">
+        <div class="sns-icon">𝕏</div>
+        <div class="sns-icon">f</div>
+        <div class="sns-icon">L</div>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>コース一覧</h5>
+      <ul>
+        <li><a href="#">Web制作コース</a></li>
+        <li><a href="#">Web制作実践コース</a></li>
+        <li><a href="#">Webデザインコース</a></li>
+        <li><a href="#">動画編集コース</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>名コースの詳細</h5>
+      <ul>
+        <li><a href="#">卒業生の声</a></li>
+        <li><a href="#">ブログ</a></li>
+        <li><a href="#">資料ダウンロード</a></li>
+        <li><a href="#">無料カウンセリング予約</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>運営会社</h5>
+      <ul>
+        <li><a href="#">株式会社Y's</a></li>
+        <li><a href="#">プライバシーポリシー</a></li>
+        <li><a href="#">特定商取引法に基づく表記</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2024 Y's inc.</div>
+</footer>
+
+<script>
+function toggleFaq(el) {
+  el.closest('.faq-item').classList.toggle('open');
+}
+</script>
+</body>
+</html>
